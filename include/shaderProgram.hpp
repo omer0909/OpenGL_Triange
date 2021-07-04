@@ -6,6 +6,8 @@ class ShaderProgram
 {
 public:
     ShaderProgram();
+
+    ~ShaderProgram();
     
     void attachShader(const char *fileName, unsigned int shaderType);
 

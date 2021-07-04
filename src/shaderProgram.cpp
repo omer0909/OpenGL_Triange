@@ -6,6 +6,10 @@ ShaderProgram::ShaderProgram()
 {
     m_ProgramId = glCreateProgram();
 }
+ShaderProgram::~ShaderProgram()
+{
+    glDeleteProgram(m_ProgramId);
+}
 void ShaderProgram::link()
 {
     glLinkProgram(m_ProgramId);
@@ -25,6 +29,7 @@ void ShaderProgram::attachShader(const char *fileName, unsigned int shaderType)
     glShaderSource(shaderId, 1, &chSourceCode, 0);
     glCompileShader(shaderId);
     glAttachShader(m_ProgramId, shaderId);
+    glDeleteShader(shaderId);
 }
 
 std::string ShaderProgram::getShaderFromFile(const char *fileName)
