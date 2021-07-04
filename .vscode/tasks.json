@@ -1,0 +1,61 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "CMake",
+            "type": "shell",
+            "command": "cmake",
+            "windows": {
+                "command": "cmake",
+                "args": [
+                    "${workspaceFolder}",
+                    "-G",
+                    "MinGW Makefiles"
+                ]
+            },
+            "options": {
+                "cwd": "${workspaceFolder}/../build-game-3d"
+            },
+            "args": [
+                "${workspaceFolder}"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "dependsOn": [
+                "createBuildFolder"
+            ],
+        },
+        {
+            "label": "createBuildFolder",
+            "type": "shell",
+            "command": "mkdir",
+            "windows": {
+                "command": "cmd",
+                "args": [
+                    "/C",
+                    "if not exist .\\build-game-3d mkdir .\\build-game-3d"
+                ]
+            },
+            "options": {
+                "cwd": "${workspaceFolder}/.."
+            },
+            "args": [
+                "-p",
+                "build-game-3d"
+            ],
+        },
+        {
+            "label": "Make",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}/../build-game-3d"
+            },
+            "command": "MinGW32-make",
+            "args": [
+                "-l"
+            ]
+        }
+    ]
+}
