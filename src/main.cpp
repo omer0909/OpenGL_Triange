@@ -10,8 +10,6 @@ float vertices[] = {
 
 int main(int argc, char **argv)
 {
-
-    std::cout << "test";
     if (!glfwInit())
     {
         return -1;
@@ -20,7 +18,7 @@ int main(int argc, char **argv)
 
     if (window == NULL)
     {
-        std::cout << "pencere olusturulamadı" << std::endl;
+        std::cout << "Could not create window" << std::endl;
         glfwTerminate();
         return -1;
     }

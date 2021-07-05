@@ -1,6 +1,7 @@
 #include "shaderProgram.hpp"
 #include <glad/glad.h>
 #include <fstream>
+#include <iostream>
 
 ShaderProgram::ShaderProgram()
 {
@@ -28,6 +29,14 @@ void ShaderProgram::attachShader(const char *fileName, unsigned int shaderType)
 
     glShaderSource(shaderId, 1, &chSourceCode, 0);
     glCompileShader(shaderId);
+    int isCompiled;
+    char log[512];
+    glGetShaderiv(shaderId, GL_COMPILE_STATUS, &isCompiled);
+    if (!isCompiled)
+    {
+        glad_glGetShaderInfoLog(shaderId,512,0,log);
+        std::cout<<"ERROR:"<<fileName<<std::endl<<log<<std::endl;
+    }
     glAttachShader(m_ProgramId, shaderId);
     glDeleteShader(shaderId);
 }
