@@ -8,6 +8,14 @@ float vertices[] = {
     0.5f, -0.5f, 0.0f,
     0.0f, 0.5f, 0.0f};
 
+void key_callback(GLFWwindow *window, int key, int scancode, int action, int mods)
+{
+    if (key == GLFW_KEY_ESCAPE)
+    {
+        glfwTerminate();
+    }
+}
+
 int main(int argc, char **argv)
 {
     if (!glfwInit())
@@ -22,7 +30,7 @@ int main(int argc, char **argv)
         glfwTerminate();
         return -1;
     }
-
+    glfwSetKeyCallback(window, key_callback);
     glfwMakeContextCurrent(window);
 
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))

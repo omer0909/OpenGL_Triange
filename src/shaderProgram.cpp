@@ -14,6 +14,14 @@ ShaderProgram::~ShaderProgram()
 void ShaderProgram::link()
 {
     glLinkProgram(m_ProgramId);
+    int isLinked;
+    char log[512];
+    glGetProgramiv(m_ProgramId, GL_LINK_STATUS, &isLinked);
+    if (!isLinked)
+    {
+        glGetProgramInfoLog(isLinked,512,0,log);
+        std::cout<<"ERROR: Shader Program could not linked"<<std::endl<<log<<std::endl;
+    }
 }
 
 void ShaderProgram::use()
