@@ -1,6 +1,6 @@
 # game-3d
 
-# --build commands for windows--<br/>
+## --build commands for windows--<br/>
 cd ..<br/>
 mkdir build-game-3d<br/>
 cd build-game-3d<br/>
