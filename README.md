@@ -1,9 +1,9 @@
 # game-3d
 
---build commands for windows--
-cd ..
-mkdir build-game-3d
-cd build-game-3d
-cmake ../game-3d -G "MinGW Makefiles"
-MinGW32-make
-game3d.exe
+#--build commands for windows--<br/>
+cd ..<br/>
+mkdir build-game-3d<br/>
+cd build-game-3d<br/>
+cmake ../game-3d -G "MinGW Makefiles"<br/>
+MinGW32-make<br/>
+game3d.exe<br/>
