@@ -1,4 +1,4 @@
-# game-3d
+# OpenGL_Triangle
 
 ## --build commands for windows--<br/>
 cd ..<br/>
